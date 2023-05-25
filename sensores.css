@@ -1,0 +1,62 @@
+#sensors-section{
+    display: flex;
+    align-items: center;
+}
+
+.sensors-all-content{
+    display: flex;
+    flex-direction: column;
+}
+
+.sensors-underside-half-content{
+    width: 45%;
+}
+
+.sensors-underside-container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.Sensors-img img{
+    max-width: max-content;
+}
+
+.Sensors-img{
+    display: flex;
+    justify-content: center;
+}
+
+.encoder-img img{
+    max-width: max-content;
+}
+
+#sensors-section h2{
+    text-align: center;
+    color: #F5B844; 
+}
+
+#sensors-section h3{
+    text-align: center;
+    color: #F5B844; 
+}
+
+#sensors-section p{
+    text-align: justify;
+    color: white;
+}
+
+.sensors-underside-content-right-article{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.encoder-img{
+    display: flex;
+    justify-content: center;
+}
+
+.sensors-underside-container figcaption{
+    color: #F5B844; 
+    text-align: center;
+}

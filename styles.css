@@ -1,0 +1,380 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+/* font-family: 'Montserrat', sans-serif;
+font-family: 'Open Sans', sans-serif; */
+
+body{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.6rem;
+}
+
+html{
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+
+h1, h2, h3, h4{
+    font-family: 'Montserrat', sans-serif;
+}
+
+h1{
+    font-size: 3rem;
+    text-transform: uppercase;
+}
+
+h2{
+    font-size: 5.5rem;
+}
+
+h3{
+    font-size: 4rem;
+}
+
+h4{
+    font-size: 3rem;
+}
+
+.main-bg{
+    background-image: url('img/main-bg.svg');   
+    background-size: auto;
+    background-position: center center; 
+}
+
+.white-bg{
+    background-color: white;
+}
+
+.main-content{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section{
+    min-height: 100vh;
+}
+
+.menu{
+    background: #640D27;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+}
+
+#menu-content{
+    display: flex; 
+    justify-content: space-between;  
+    align-items: center;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.menu ul{
+   list-style: none; 
+   display: flex;
+}
+
+.menu ul li a{
+    text-decoration: none;
+    color: white;
+    display: block;
+    padding: 2rem;
+}
+
+.menu ul li a:hover{
+    transition: all 300ms ease-in-out;
+    color: wheat;
+}
+
+
+.menu div span{
+    font-size: 2.3rem;
+    font: white;
+}
+
+#inicio{
+    font-size: 3rem;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+}
+
+.material-symbols-outlined:hover{
+    transition: all 300ms ease-in-out;
+    color: wheat;
+}
+
+.spacing{
+    height: 60px;
+}
+
+.line-content{
+    display: flex;
+    align-items: center;
+    gap:50px;
+}
+
+.line-content p{
+    text-align: justify;
+}
+
+.line-img{
+    margin-top: 10rem;
+}
+
+.main-title{
+    color: #640D27;
+    margin-bottom: 2rem;
+}
+
+.arduino-article{
+    color: white;
+}
+
+.arduino-title{
+    display:flex;
+    flex-direction: column;
+    margin-right: 50px;
+}
+
+#arduino-section{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.arduino-title h2{
+    color: #F5B844; 
+}
+
+.arduino-title p{
+    color: white;
+}
+
+.arduino-content{
+    display: flex;
+    justify-content: space-around;
+}
+
+.arduino-figure{
+    padding-top: 50px;
+}
+
+.arduino-list{
+    margin-top: 50px;
+    list-style: none; 
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.text-title{
+    color: #F5B844; 
+    text-align: center;
+    padding-top: 17px;
+}
+
+#list1{
+    padding-top: 100px;
+}
+
+.arduino-list figcaption{
+    color: #F5B844; 
+    text-align: center;
+}
+
+.fig-arduino{
+    color: #F5B844; 
+    text-align: center;
+}  
+
+#title-arduino{
+    text-align: center;
+}
+
+.text-inside-article{
+    padding: 30px;
+    text-align: justify;
+    font-size: 2.1rem;
+}
+
+#p-arduino{
+    text-align: justify;
+    font-size: 2rem;
+}
+
+#anologic-circuit-section{
+    display: flex;
+    align-items: center;
+}
+
+#section-battery{
+    display: flex;
+    align-items: center;
+}
+
+.battery-all-content{
+    display: flex;
+    flex-direction: column;
+}
+
+.battery-title{
+    text-align: center;
+    color: #640D27;
+    padding-bottom: 50px;
+}
+
+.battery-underside-container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.battery-underside-half-content{
+    display: flex;
+    flex-direction: column;
+    width: 45%
+}
+
+.battery-list{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    list-style: none;
+    padding-bottom: 60px;
+}
+
+.battery-list figcaption{
+    text-align: center;
+}
+
+.battery-underside-half-content{
+    display: flex;
+    justify-content: space-between;
+}
+
+.battery-underside-content-subtitle{
+    color: #640D27;
+    text-align: center;
+}
+
+.battery-underside-content-article{
+    padding: 15px;
+    text-align: justify;
+}
+
+.battery-underside-content-right-article p{
+    padding: 15px;
+    text-align: justify;
+}
+
+#ponte-h-section{
+    display: flex;
+    align-items: center;
+}
+
+.ponteh-title {
+    color: #640D27;
+    text-align: center;
+}
+
+.ponteh-underside-container{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 100px;
+}
+
+.ponteh-underside-half-content {
+    display: flex;
+    width: 60%;
+}
+
+.ponteh-subtitle  {
+    color: #640D27;
+    display: flex;
+    justify-content: space-around;
+}
+
+.ponteh-article-title {
+    text-align: center;
+    color: #640D27;
+}
+
+.ponteh-underside-content-article{
+    text-align: justify;
+    width: 40%;
+}
+
+.ponteh-underside-content-right-article p{
+    padding: 15px;
+    text-align: justify;
+}
+
+.img-ponteh-l298n{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.img-ponteh-l298n figure{
+    align-self: center;
+}
+
+.img-ponteh-tb66{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.img-ponteh-tb66 figure{
+    align-self: center;
+}
+
+.img-ponteh-tb66 h3{
+    color: #640D27;
+    align-self: center;
+}
+
+.img-ponteh-l298n h3{
+    color: #640D27;
+    align-self: center; 
+}
+
+.figure-ponteh{
+    text-align: center;
+}
+
+.all-content-ponteh{
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-content{
+    background-color: #640D27;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 96.8%;
+    height: 60px;
+    padding: 30px;
+    
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+
+.footer-content img {
+    width: 4%;
+    height: 95%;
+}
+
+.main-text {
+    text-decoration: none;
+    color: white;
+    display: block;
+    
+}

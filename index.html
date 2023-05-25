@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Open+Sans:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <title>Line Follower</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="motor.css">
+    <link rel="stylesheet" href="sensores.css">
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings:
+                'FILL' 0,
+                'wght' 400,
+                'GRAD' 0,
+                'opsz' 48
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <aside class="menu">
+            <div class="main-content" id="menu-content">
+                <div>
+                    <a href='#' id="inicio"><span class="material-symbols-outlined">Home</span></a>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href='#arduino-section'>Arduino</a></li>
+                        <li><a href='#anologic-circuit-section'>Analogico</a></li>
+                        <li><a href='#sensors-section'>Sensores</a></li>
+                        <li><a href='#ponte-h-section'>Ponte H</a></li>
+                        <li><a href='#motor-section'>Motores</a></li>
+                        <li><a href='#section-battery'>Baterias</a></li>
+                        <li><a href='#footer'>Aviso</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </aside>
+        <div class="spacing"></div>
+        <section class="main-content section">
+            <div class="line-content">
+                <div class="line-main-content">
+                    <article>
+                        <h1 class="main-title">Circuitos Básicos do robô seguidor de linha</h1>
+                        <p>O robô seguidor de linha consiste em um robô que sua função é seguir uma linha em uma determinada pista.
+                            Existem algumas formas de controle para manter o robo no centro da linha, fazer curvas e saber quando parar.
+                            Sensores infravermelho, fotoresistores, encoders digitais e visão computacional são algumas formas de receber os 
+                            dados da posição do robô em relação a linha e a pista. Neste artigo iremos falar um pouco sobre os circuitos
+                            básicos para o funcionamento do robô seguidor de linha e também uma versão sem microcontrolador, apenas com 
+                            eletrônica analógica. 
+                        </p>
+                    </article>
+                </div>
+
+                <div class="line-img">
+                    <img src="img/line-follower.jpg" alt="imagem robo seguidor de linha">
+                </div>
+            </div>
+        </section>
+        <main>
+            <section class="main-bg section" id="arduino-section">
+                <div class="main-content arduino-content">
+                    <div class="arduino-title" id="arduino-item1">
+                        <div min-width="1000px">
+                            <h2 id="title-arduino">Arduino</h2>
+                            <p class="text-inside-article"><span>Arduino é uma placa de circuito que permite o
+                                    desenvolver e prototipar circuitos eletrônicos, comumente utilizado
+                                    na robótica para fazer o controle do robô, pode ser programado em linguagem C++.
+                                </span></p>
+                        </div>
+                        <div class="arduino-figure">
+                            <aside>
+                                <figure><img src="img/arduino.png" alt="imagem arduino uno" width="300" height="253">
+                                    <figcaption class="fig-arduino">Arduino UNO R3</figcaption>
+                                </figure>
+                            </aside>
+                        </div>
+                    </div>
+                    <div id="arduino-item2">
+                        <article class="arduino-article">
+                            <h3 class="text-title">Por que utilizar Arduino ?</h3>
+                            <p class="text-inside-article" id="p-arduino"><span>No mercado há a dosponilidade de
+                                    diversas placas de desenovlimento semelhantes ao arduino e até
+                                    melhores e mais potentes, a escolha do arduino é devido a uma sequência de fatores.
+                                    Primeiramente, o arduino está no mercado a mais tempo que as outras placas e então
+                                    possui mais projetos disponiveís
+                                    na comunidade, mais bibliotecas e mais conteúdo para resolução de possíveis
+                                    problemas. Lidar com outras placas, como
+                                    STM32, ESP32, ESP8266, Raspberry PI também possibilitaria a contrução do robô, porém
+                                    são hardwares mais complexos e alguns podem ter o nível de
+                                    abstração muito maior que o arduino.
+                                </span></p>
+                        </article>
+                        <div class="content-list">
+                            <h4 class="text-title" id="list1">Outras placas de desenvolvimento:</h4>
+                            <ul class="arduino-list">
+                                <li>
+                                    <figure><img src="img/arduino-nano.png" alt="imagem arduino nano" width="200"
+                                            height="200">
+                                        <figcaption>Arduino Nano</figcaption>
+                                    </figure>
+                                </li>
+                                <li>
+                                    <figure><img src="img/nodemcu.png" alt="imagem nodemcu" width="200" height="200">
+                                        <figcaption>ESP8266</figcaption>
+                                    </figure>
+                                </li>
+                                <li>
+                                    <figure><img src="img/avr32.png" alt="imagem avr32" width="200" height="200">
+                                        <figcaption>AVR32</figcaption>
+                                    </figure>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="main-content section" id="anologic-circuit-section">
+                <div class="line-content">
+                    <div class="line-main-content">
+                        <article>
+                            <h1 class="main-title">Robô seguidor de linha usando eletrônica Analógica</h1>
+                            <p class="main-P"><span>Exemplo de circuito para um seguidor de linha simples e analogico
+                                Esse circuito usa como base o sensor ldr, que com base na intensidade de luz recebidas
+                                por
+                                ele muda a sua resistência, fazendo a base no transistor Q1 e Q3 ligado a ele ser
+                                acionada
+                                possibilitando ou não a passagem de corrente para os transistores de potência Q2 e Q4
+                                ligados aos motores, esse é um circuito analogico muito utilizado para a aprendizagem
+                                sobre
+                                os robôs seguidores de linha.
+                            </span></p>
+                        </article>
+                    </div>
+                    <div class="line-img">
+                        <img src="./img/line-follower-circuit.png" alt="imagem robo seguidor de linha" width="780"
+                            height="480">
+                    </div>
+                </div>
+            </section>
+            <section class="main-bg section sensors" id="sensors-section">
+                <div class="sensors-all-content main-content" id="sensors-content">
+                    <div class="sensors-title">
+                        <h2>Sensores</h2>
+                    </div>
+                    <div class="sensors-underside-container">
+                        <div class="sensors-underside-half-content">
+                            <div class="sensors-underside-content-subtitle">
+                                <h3>SENSOR DE REFLETANCIA </h3>
+                            </div>
+                            <div class="sensors-underside-content-article">
+                                <article>
+                                    <p> Um sensor de refletancia dispara ondas de luz infravermelho, caso a linha for preta, a luz será
+                                        absorvida e não irá refletir no fototransistor, esse sinal é recebido numa entrada analógica 
+                                        do arduino, assim, deduzimos a posição do robô.</p>
+                                </article>
+                            </div>
+                            <div class="Sensors-img">
+                                <figure>
+                                    <img src="img/qtr8a.png" alt="imagem sensor do seguidor de linha" width="400"
+                                height="350">
+                                <figcaption>Matriz de sensores QTR-8A pololu</figcaption>
+                                </figure>
+                            </div>
+                        </div>
+                        <div class="sensors-underside-half-content" id="right-sensors">
+                            <div class="sensors-underside-content-right-article">
+                                <div class="encoder-img">
+                                    <figure><figcaption>Maxon Encoder Digital</figcaption>
+                                        <img src="img/encoder.png" alt="imagem sensor do seguidor de linha" width="400"
+                                    height="350">
+                                    </figure>
+                                </div>
+                                <p>O Encoder digital para motor consiste num painel com furos, onde passa ondas de luz infravermelha, quando o motor gira,
+                                    o painel também gira, interrompendo o caminho da luz. Dessa maneira, o arduino recebe as interrupções do sinal e podemos deduzir qual o tamanho da pista e fazer mapeamento de curvas e
+                                    calcular a velocidade.
+                                </p>
+                                <div class="sensors-underside-content-subtitle">
+                                        <h3>SENSOR ENCODER</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </section>
+            <section class="main-content white-bg section" id="ponte-h-section">
+                <div class="all-content-ponteh">
+                    <div class="ponteh-title">
+                        <h2>Ponte H</h2>
+                    </div>
+                    <div class="ponteh-underside-container">
+                        <div class="ponteh-underside-half-content">
+                            <div class="img-ponteh-l298n">
+                                <h3>L298N</h3>
+                                <figure><img src="./img/l296n.jpg" alt="imagem robo seguidor de linha" width="300"
+                                        height="250">
+                                    <figcaption class="figure-ponteh">Ponte H média potência</figcaption>
+                                </figure>
+                            </div>
+                            <div class="img-ponteh-tb66">
+                                <h3>TB6612FNG</h3>
+                                <figure><img src="./img/tb6612fng.jpg" alt="imagem robo seguidor de linha" width="300"
+                                        height="250">
+                                    <figcaption class="figure-ponteh">Ponte H baixa potência</figcaption>
+                                </figure>
+                            </div>
+                        </div>
+                        <div class="ponteh-underside-content-article">
+                            <div class="ponteh-underside-content-right-article">
+                                <div class="ponteh-article-title">
+                                    <h3>O que são Pontes H?</h3>
+                                </div>
+                                <article>
+                                    <p> <span> Para controlar os motores há a necessidade de um drive que seja
+                                            compatível com os
+                                            sinais enviados pelo arduino. Na maior parte das vezes, o mais comum a ser
+                                            utilizado
+                                            são Pontes H com Circuitos Integrados, essas pontes H são baseadas em
+                                            circuitos
+                                            integrados dedicados, como a L293D, L298N e L296N, Essas Pontes H são
+                                            geralmente mais
+                                            fáceis de usar e requerem menos componentes externos, a diferença entre eles
+                                            é, normalmente,
+                                            sobre o quanto cada um dos drivers suporte de corrente. As Pontes H MOSFET
+                                            podem suportar
+                                            correntes mais altas com eficiência e dissipação de calor melhores do que as
+                                            pontes H com
+                                            transistores bipolares. </span></p>
+                                </article>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="main-bg section" id="motor-section">
+                <div class="main-content motor-content">
+                    <div class="motor-title" id="motor-item1">
+                        <div style="max-width:700px">
+                            <h2 id="title-motor">Motores</h2>
+                            <p class="text-inside-motor">
+                                <span>
+                                    Os robôs seguidores de linha preferem motores de baixa
+                                    rotação devido ao seu maior controle de estabilidade e precisão no movimento do
+                                    mesmo,
+                                    além de fornecer mais torque para mover as rodas com mais constância e em
+                                    velocidades
+                                    mais baixas. Por outro lado, motores de alta rotação têm menos controle e torque, o
+                                    que
+                                    torna difícil o seguimento preciso de uma linha, causando deslizamentos ou
+                                    derrapagens.
+                                    Além disso, os motores de baixa rotação são mais eficientes em economia de energia,
+                                    permitindo
+                                    que o robô opere com eficiência e conserve energia suficiente para outras funções
+                                    importantes,
+                                    usando também, uma bateria com menor voltagem, como a de 9V.
+                                </span>
+                            </p>
+                            <p class="text-inside-motor">
+                                <span>
+                                    Os motores mais utilizados são Motores DC e Motores de Passo.
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                    <ul class="motor-list">
+                        <li>
+                            <figure><img src="img/motorDC.png" alt="imagem motor DC" width="200" height="200">
+                                <figcaption class="fig-motores">Exemplo de Motor DC</figcaption>
+                            </figure>
+                        </li>
+                        <li>
+                            <figure><img src="img/motorPasso.png" alt="imagem motor passo" width="200" height="200">
+                                <figcaption class="fig-motores">Exemplo de Motor Passo</figcaption>
+                            </figure>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            <section class="main-content white-bg section" id="section-battery">
+                <div class="battery-all-content" id="battery-content">
+                    <div class="battery-title">
+                        <h2>BATERIAS</h2>
+                    </div>
+                    <div class="battery-underside-container">
+                        <div class="battery-underside-half-content">
+                            <div class="battery-underside-content-subtitle">
+                                <h3>FUNÇÃO DAS BATERIAS</h3>
+                            </div>
+                            <div class="battery-underside-content-article">
+                                <p><span>Para manter tudo funcionando é necessário fornecer uma fonte de energia para o
+                                        robô.
+                                        Existem diversos modelos de baterias que podem ser utilizados, e algumas
+                                        carateristicas devem
+                                        ser consideradas. Capacidade de armazenamento, constante de descarga, auto
+                                        descarga, volume e peso são
+                                        caracteristicas relevantes para o projeto, e neste robô seguidor de linha,
+                                        precisamos de uma bateria leve,
+                                        compacta, com alta capacidade de descarga e alta capacidade de armazenamento,
+                                        por isso, a bateria escolhida é a de Lithium.
+                                    </span></p>
+                            </div>
+                            <div class="battery-underside-content-img">
+                                <figure>
+                                    <img src="./img/bateiras.jpg" alt="imagem de baterias" width=550 height=380>
+                                </figure>
+                            </div>
+                        </div>
+                        <div class="battery-underside-half-content">
+                            <div class="battery-underside-content-right-article">
+                                <div class="battery-underside-content-subtitle">
+                                    <h3>MODELOS DE BATERIAS</h3>
+                                </div>
+                                <p><span>Por curiosidade, há outros modelos de bateria no mercado, a bateria de chumbo
+                                        acido consegue ter uma alta capacidade de armazenamento,
+                                        altissima constante de descarga porém é muito pesada e muito grande. Bateria de
+                                        lipo é uma bateria leve, alta desidade de descarga, alta capacidade de
+                                        armazenamento,
+                                        porém é extremamente 'chata' de lidar, tendo que tomar muito cuidado com o nível
+                                        de tensão das células pois se carregar de
+                                        forma incorreta ou perder a carga completamente, não funcionará mais.</span></p>
+                            </div>
+                            <div class="battery-underside-content-list">
+                                <ul class="battery-list">
+                                    <li>
+                                        <figure>
+                                            <img src="./img/bateria-chumbo.webp" alt="imagem de bateria de chumbo acido"
+                                                width="180" height="150">
+                                            <figcaption>bateria chumbo-ácido</figcaption>
+                                        </figure>
+                                    <li>
+                                        <figure>
+                                            <img src="./img/bateria-lipo.jpg" alt="imagem de bateria de lipo"
+                                                width="180" height="150">
+                                            <figcaption>bateria Li-Po</figcaption>
+                                        </figure>
+                                    </li>
+                                    <li>
+                                        <figure>
+                                            <img src="./img/bateria.webp" alt="imagem de bateria de lithium" width="180"
+                                                height="150">
+                                            <figcaption>bateria Li-Ion</figcaption>
+                                        </figure>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+         <footer id="footer">
+            <div class="footer-content">
+                <div>
+                    <p class="main-text">Copyright: 2023 Primeira fase de engenharia da Catolica SC</p>
+                    <p class="main-text">Alunos: João Hentz, Vinicius Froes, Rafael de Lara, Mateus Mauricio, Wellynton Wudke</p>
+                </div>   
+                <img src="./img/catolica.png" alt="" width="100" height="100">
+            </div>
+        </footer>
+</body>
+
+</html>

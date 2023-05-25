@@ -1,0 +1,57 @@
+.motor-article{
+    color: white;
+}
+
+.motor-title{
+    display:flex;
+    flex-direction: column;
+    margin-right: 50px;
+}
+
+#motor-section{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.motor-title h2{
+    color: #F5B844; 
+}
+
+.motor-title p{
+    color: white;
+}
+
+.motor-content{
+    display: flex;
+    justify-content: space-around;
+}
+
+.motor-figure{
+    padding-top: 50px;
+}
+
+.motor-list{
+    list-style: none; 
+    display:flex;
+    width: 200px;
+    height: 500px;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 150px;
+}
+
+#title-motor{
+    text-align: center;
+}
+
+.text-inside-motor{
+    padding: 10px;
+    text-align: justify;
+    font-size: 2.1rem;
+}
+
+.fig-motores{
+    color: #F5B844; 
+}
+
